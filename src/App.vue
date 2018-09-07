@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+     <img alt="Vue logo" src="./assets/logo.png">
      <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
      <router-view v-if="!$route.meta.keepAlive"></router-view>
      <keep-alive>
         <router-view v-if="$route.meta.keepAlive"></router-view>
      </keep-alive>
-    
+     {{$t("message.hello")}}
   </div>
 </template>
 
@@ -22,11 +22,15 @@ export default {
     return {
       a:false
     }
+  },
+  mounted() {
+    console.log(this.$i18n)
   }
 }
 </script>
 
-<style>
+<style >
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -34,5 +38,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  
 }
 </style>

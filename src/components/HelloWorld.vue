@@ -35,7 +35,12 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  }
+  },
+  created() {
+      this.bus.$on('data',(data)=>{
+        console.log('data',data)
+      })
+  },
 }
 </script>
 
